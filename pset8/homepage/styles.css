@@ -1,0 +1,28 @@
+.intro-section {
+    background-color: #ABEDC6;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 32px;
+}
+
+.intro-title {
+    font-size: 2.5em;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.intro-text {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #F19A3E;
+}
+
+.intro-text:hover {
+    color: #F23F3F;
+}
+
+#special-note {
+    font-style: italic;
+    color: ##403233;
+}
+
+

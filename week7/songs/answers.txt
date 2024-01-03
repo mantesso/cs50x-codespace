@@ -1,0 +1,14 @@
+>If songs.db contains the top 100 songs of one listener from 2018, how would you characterize their audio aura?
+
+We can calculate the audio aura for this given user by looking at the average energy, valence, and danceability with the following query:
+`SELECT name, ROUND((energy + valence + danceability)/3,2) FROM songs;`
+This query will output the averages (aura) rounded to two decimal places.
+
+When the aura is high the songs might be characterized as energetic, positive, and lively.
+While looking at this user aura, we can say that most of the values are higher than 0.5 so we can conclude that
+they prefer music that is energetic, positive, and danceable as opposed to more calm songs.
+
+>Hypothesize about why the way you’ve calculated this aura might not be very representative of the listener. What better ways of calculating this aura would you propose?
+We don't know the exact algorithm used by Spotify and the averages might not be representative as it smooths out extremes values.
+While we have the top 100 most played songs, we don't know the exact number of plays for each one.
+We should also note the variability and range in the auras. While the average trend leans towards higher scores (>0.5), there are songs with lower scores too.

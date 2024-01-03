@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            document.addEventListener("DOMContentLoaded", (event) => {
+                let options = document.querySelectorAll("button");
+                options.forEach((option) => {
+                    if (option.id != "writtenAnswer") {
+                        option.addEventListener("click", checkAnswer);
+                    }
+                });
+
+                let writtenAnswer = document.getElementById("writtenAnswer");
+                writtenAnswer.addEventListener("click", checkWrittenAnswer)
+            });
+
+
+
+            function checkAnswer() {
+                let p = document.getElementById("multipleChoiceFeedback");
+                let option = event.target;
+                if (option.innerText == "Neon") {
+                    option.style.background = 'green'
+                    p.innerText = 'Correct!';
+                } else {
+                    option.style.background = 'red'
+                    p.innerText = 'Incorrect';
+                }
+            }
+
+            function checkWrittenAnswer(event) {
+                let answer = document.getElementById("freeResponseInput")
+                let p = document.getElementById("freeResponseFeedback");
+                if (answer.value.toLowerCase() == "tokyo" ) {
+                    answer.style.background = 'green'
+                    p.innerText = 'Correct!';
+                } else {
+                    answer.style.background = 'red'
+                    p.innerText = 'Incorrect';
+                }
+                event.preventDefault();
+            }
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>Question: Which of these elements is a noble gas?</h3>
+                <button>Oxygen</button>
+                <button>Carbon</button>
+                <button>Neon</button>
+                <button>Iron</button>
+                <p id="multipleChoiceFeedback"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>Question: What is the capital city of Japan?</h3>
+                <form onsubmit="checkWrittenAnswer(event)">
+                    <input type="text" id="freeResponseInput">
+                    <button id="writtenAnswer">Check Answer</button>
+                </form>
+                <p id="freeResponseFeedback"></p>
+            </div>
+        </div>
+    </body>
+</html>
